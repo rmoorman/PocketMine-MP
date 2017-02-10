@@ -1,0 +1,8 @@
+machine:
+ php: 7.0
+
+test:
+ override:
+  - ./tests/travis.sh
+ post:
+  - mv plugins/DevTools/PocketMine*.phar $CIRCLE_ARTIFACTS/
