@@ -1,8 +1,16 @@
 machine:
  php:
-  version: 7.0.7
+  version: 7.0
+
+checkout:
+ post:
+  - git submodule update --init --recursive
 
 test:
+ pre:
+  - pecl install channel://pecl.php.net/pthreads-3.1.6
+  - pecl install channel://pecl.php.net/weakref-0.3.2
+  - echo | pecl install channel://pecl.php.net/yaml-2.0.0
  override:
   - ./tests/travis.sh
  post:
